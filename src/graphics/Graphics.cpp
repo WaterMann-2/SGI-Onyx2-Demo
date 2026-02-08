@@ -36,7 +36,10 @@ void Graphics::HelloWorld() {
 			}
 		}
 	}
+	SDL_DestroyWindow(window);
+	SDL_Quit();
 
+	std::exit(GL_SUCCESS);
 }
 
 void Graphics::Start() {
