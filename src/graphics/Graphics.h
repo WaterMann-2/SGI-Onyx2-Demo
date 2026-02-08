@@ -6,7 +6,7 @@
 #define SILICONGRAPHICS_GRAPHICS_H
 
 #include "../glad/glad.h"
-#include <GLFW/glfw3.h>
+#include <SDL2/SDL.h>
 
 #include "../utils/Utils.h"
 
@@ -17,11 +17,27 @@ class Graphics {
 	void HelloWorld();
 
 	struct WindowContext {
-		GLFWwindow* window;
+		SDL_Window* window;
 		int16 width, height;
-		std::string title;
-		std::string windowName;
+		String title;
+		String windowName;
+		bool fullscreen;
 	};
+
+	void Start();
+
+private:
+	struct WindowContextInfo{
+		int16 width, height;
+		String title;
+		String windowName;
+		bool fullscreen;
+	};
+
+private:
+	WindowContext windowContext;
+
+	void createWindow(WindowContextInfo& pWindowCreateInfo, WindowContext& windowContext);
 
 };
 } // SpGL

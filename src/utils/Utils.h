@@ -7,6 +7,7 @@
 
 #include <cstdint>
 #include <cstdio>
+#include <stdio.h>
 #include <string>
 
 
@@ -17,7 +18,13 @@ typedef std::uint16_t uint16;
 typedef std::int32_t int32;
 typedef std::uint32_t uint32;
 
+typedef std::string String;
 
+enum SP_GL_RESULT {
+	GL_SUCCESS = 0,
+	GL_FAIL = 1,
+	GL_SDL_ERROR = 2
+};
 
 class utils {
 };

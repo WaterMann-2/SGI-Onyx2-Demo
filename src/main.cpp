@@ -5,4 +5,5 @@
 int main() {
 	SpGL::Graphics graphics;
 	graphics.HelloWorld();
+
 }

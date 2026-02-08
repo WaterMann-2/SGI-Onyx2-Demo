@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.17)
 project(SiliconGraphics)
 
 set(CMAKE_CXX_STANDARD 11)
 
-find_package(OpenGL 1.1 REQUIRED)
-find_package(glfw3 REQUIRED)
+#find_package(OpenGL 1.1 REQUIRED)
+find_package(SDL2 REQUIRED)
 
 add_executable(SiliconGraphics src/main.cpp
         src/graphics/Graphics.cpp
@@ -16,5 +16,6 @@ add_executable(SiliconGraphics src/main.cpp
         src/utils/Utils.h
 )
 
-target_link_libraries(SiliconGraphics PRIVATE OpenGL::OpenGL)
-target_link_libraries(SiliconGraphics PRIVATE glfw)
+
+#target_link_libraries(SiliconGraphics PRIVATE OpenGL::OpenGL)
+target_link_libraries(SiliconGraphics PRIVATE SDL2::SDL2 SDL2::SDL2main)
