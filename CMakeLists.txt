@@ -4,7 +4,7 @@ project(SiliconGraphics)
 set(CMAKE_CXX_STANDARD 11)
 
 #find_package(OpenGL 1.1 REQUIRED)
-find_package(SDL2 REQUIRED)
+find_package(GLUT REQUIRED)
 
 add_executable(SiliconGraphics src/main.cpp
         src/graphics/Graphics.cpp
@@ -12,10 +12,12 @@ add_executable(SiliconGraphics src/main.cpp
         src/glad/glad.c
         src/glad/glad.h
         src/glad/khrplatform.h
-        src/utils/Utils.cpp
-        src/utils/Utils.h
+        src/utils/SpUtils.cpp
+        src/utils/SpUtils.h
+        src/utils/Math.cpp
+        src/utils/Math.h
 )
 
 
 #target_link_libraries(SiliconGraphics PRIVATE OpenGL::OpenGL)
-target_link_libraries(SiliconGraphics PRIVATE SDL2::SDL2 SDL2::SDL2main)
+target_link_libraries(SiliconGraphics PRIVATE GLUT::GLUT)
