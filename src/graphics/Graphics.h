@@ -5,6 +5,8 @@
 #ifndef SILICONGRAPHICS_GRAPHICS_H
 #define SILICONGRAPHICS_GRAPHICS_H
 
+
+
 #include "../glad/glad.h"
 
 #include "../utils/SpUtils.h"
@@ -12,32 +14,46 @@
 
 namespace SpGL {
 
-struct WindowContext {
-	WindowContext();
-	window;
-	surface;
-	glContext;
+struct WindowStartContext {
 	int16 width, height;
-	String title;
-	String windowName;
+	String name;
 	Color clearColor;
 	bool fullscreen;
 };
 
-// ReSharper disable once CppClassNeedsConstructorBecauseOfUninitializedMember
 class Graphics {
+private:
+	struct WindowContext {
+		GLFWwindow* window;
+		int16 width, height;
+		String name;
+		Color clearColor;
+		bool fullscreen;
+	};
 	public:
 
-	Graphics();
+	Graphics() = default;
+
+	void Init(WindowStartContext initalContext);
+	void MainLoop();
+	void Update();
+	void Render();
+
+	void End();
 
 private:
-	bool quit = false;
-	WindowContext windowContext;
-
+	WindowContext windowContext_;
 
 private:
+
+	void CreateWindow();
+	void DestroyWindow();
+
+	void InitGL();
 
 };
+
+
 } // SpGL
 
 #endif //SILICONGRAPHICS_GRAPHICS_H

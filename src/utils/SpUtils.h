@@ -5,6 +5,10 @@
 #ifndef SILICONGRAPHICS_UTILS_H
 #define SILICONGRAPHICS_UTILS_H
 
+#define GLFW_INCLUDE_NONE
+#include "../glad/glad.h"
+#include <GLFW/glfw3.h>
+
 #include <cstdint>
 #include <iostream>
 #include <cstdio>
@@ -23,7 +27,8 @@ typedef std::string String;
 
 enum SP_GL_RESULT {
 	SP_SUCCESS,
-	SP_FAIL
+	SP_FAIL,
+	SP_GLFW_FAIL
 };
 
 enum SP_GL_SEVERITY {
@@ -39,7 +44,10 @@ public:
 
 	static void ResultCheck(int result, std::string Error, std::string Success);
 	static void ResultCheck(int result, std::string Error);
-	static void ExitCheck(int result, const String& Error, SP_GL_RESULT ExitError, const String* pSuccess = nullptr);
+	static void ExitCheck(bool result, const String& Error, SP_GL_RESULT ExitError, const String& Success = "");
+	static void Exit(const String& Error, SP_GL_RESULT ExitError);
+
+	static void GLFWErrorCallback(int error, const char* description);
 
 };
 

@@ -2,17 +2,21 @@
 
 #include "./graphics/Graphics.h"
 
-int main() {
+int main(int argc,char* argv[]) {
 	SpGL::Graphics graphics;
 
-	SpGL::WindowContext windowContext;
+	SpGL::WindowStartContext windowContext;
 	windowContext.width = 200;
 	windowContext.height = 200;
-	windowContext.windowName = "Testing";
-	windowContext.title = "Testing";
+	windowContext.name = "Testing";
+
 	windowContext.fullscreen = false;
 	windowContext.clearColor = SpGL::Color(255.0f, 0.0f, 255.0f, 255.0f, false);
 	
-	graphics.;
+	graphics.Init(windowContext);
+	graphics.MainLoop();
+	graphics.End();
 
+	return 0;
 }
+

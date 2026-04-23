@@ -18,12 +18,11 @@ public:
 	float x, y, z;
 };
 
-class Color {
-	public:
+struct Color {
+	Color(float R = 0.0f, float G = 0.0f, float B = 0.0f, float A = 0.0f, bool ZeroToOne = false);
+
 	bool zeroToOne;
 	float r, g, b, a;
-
-	Color(float R, float G, float B, float A, bool ZeroToOne = false);
 
 	/// Return new Color from 0.0 - 1.0
 	void NormalizeColorsToOne();

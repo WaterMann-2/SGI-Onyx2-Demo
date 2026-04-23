@@ -9,30 +9,26 @@ void SpUtils::PrintConsole(const SP_GL_SEVERITY severity, const String& Message)
 	switch (severity) {
 		case SP_GL_SEVERITY::SP_INFO:
 			ConsoleMessage = "[INFO] ";
-			ConsoleMessage.append(Message);
-			ConsoleMessage = ConsoleMessage + "\n";
-			std::printf(ConsoleMessage.c_str());
+			ConsoleMessage.append(Message + "\n");
+			std::printf("%s", ConsoleMessage.c_str());
 			break;
 
 		case SP_GL_SEVERITY::SP_WARNING:
 			ConsoleMessage = "[WARNING] ";
-			ConsoleMessage.append(Message);
-			ConsoleMessage = ConsoleMessage + "\n";
-			std::printf(ConsoleMessage.c_str());
+			ConsoleMessage.append(Message + "\n");
+			std::printf("%s", ConsoleMessage.c_str());
 			break;
 
 		case SP_GL_SEVERITY::SP_ERROR:
 			ConsoleMessage = "[ERROR] ";
-			ConsoleMessage.append(Message);
-			ConsoleMessage = ConsoleMessage + "\n";
-			std::printf(ConsoleMessage.c_str());
+			ConsoleMessage.append(Message + "\n");
+			std::printf("%s", ConsoleMessage.c_str());
 			break;
 
 		case SP_GL_SEVERITY::SP_FATAL:
 			ConsoleMessage = "[FATAL] ";
-			ConsoleMessage.append(Message);
-			ConsoleMessage = ConsoleMessage + "\n";
-			std::printf(ConsoleMessage.c_str());
+			ConsoleMessage.append(Message + "\n");
+			std::printf("%s", ConsoleMessage.c_str());
 			break;
 	}
 }
@@ -45,12 +41,31 @@ void SpUtils::ResultCheck(int result, std::string Error) {
 
 }
 
-void SpUtils::ExitCheck(const int result, const String& Error, const SP_GL_RESULT ExitError, const String* pSuccess) {
+void SpUtils::ExitCheck(bool result, const String& Error, SP_GL_RESULT ExitError, const String& Success) {
 	if (result) {
-		PrintConsole(SP_FATAL, Error);
+		String ConsoleMessage = "[FATAL] ";
+		ConsoleMessage.append(Error + "\n");
+
+		std::printf("%s", ConsoleMessage.c_str());
 		std::exit(ExitError);
 	}
-	if (pSuccess != nullptr) {
-		PrintConsole(SP_INFO, *pSuccess);
+	if (Success.length() > 0) {
+		PrintConsole(SP_INFO, Success);
 	}
+}
+
+void SpUtils::Exit(const String& Error, SP_GL_RESULT ExitError) {
+	String ConsoleMessage = "[FATAL] ";
+	ConsoleMessage.append(Error + "\n");
+
+	std::printf("%s", ConsoleMessage.c_str());
+	std::exit(ExitError);
+}
+
+void SpUtils::GLFWErrorCallback(int error, const char* description) {
+	String ConsoleMessage = "[FATAL] [GLFW] ";
+	ConsoleMessage.append(description);
+
+	std::printf("%s", ConsoleMessage.c_str());
+	std::exit(error);
 }

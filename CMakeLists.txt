@@ -4,7 +4,7 @@ project(SiliconGraphics)
 set(CMAKE_CXX_STANDARD 11)
 
 #find_package(OpenGL 1.1 REQUIRED)
-find_package(GLUT REQUIRED)
+find_package(glfw3 REQUIRED)
 
 add_executable(SiliconGraphics src/main.cpp
         src/graphics/Graphics.cpp
@@ -20,4 +20,4 @@ add_executable(SiliconGraphics src/main.cpp
 
 
 #target_link_libraries(SiliconGraphics PRIVATE OpenGL::OpenGL)
-target_link_libraries(SiliconGraphics PRIVATE GLUT::GLUT)
+target_link_libraries(SiliconGraphics PRIVATE glfw)
