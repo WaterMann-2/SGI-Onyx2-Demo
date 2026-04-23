@@ -26,6 +26,7 @@ private:
 	struct WindowContext {
 		GLFWwindow* window;
 		int16 width, height;
+		int16 framebufferWidth, framebufferHeight;
 		String name;
 		Color clearColor;
 		bool fullscreen;
@@ -48,8 +49,13 @@ private:
 
 	void CreateWindow();
 	void DestroyWindow();
+	void ResizeWindow(int width, int height);
+	void ResizeFramebuffer(int width, int height);
 
 	void InitGL();
+
+	static void GLFWWindowSizeCallback(GLFWwindow* window, int width, int height);
+	static void GLFWFramebufferSizeCallback(GLFWwindow* window, int width, int height);
 
 };
 
