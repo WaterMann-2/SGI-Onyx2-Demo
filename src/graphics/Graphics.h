@@ -10,7 +10,7 @@
 #include "../glad/glad.h"
 
 #include "../utils/SpUtils.h"
-#include "../utils/Math.h"
+#include "../math/Math.h"
 
 namespace SpGL {
 
@@ -19,6 +19,8 @@ struct WindowStartContext {
 	String name;
 	Color clearColor;
 	bool fullscreen;
+
+	String Validate() const;
 };
 
 class Graphics {
@@ -28,6 +30,7 @@ private:
 		int16 width, height;
 		int16 framebufferWidth, framebufferHeight;
 		String name;
+		float aspectRatio;
 		Color clearColor;
 		bool fullscreen;
 	};
@@ -45,6 +48,12 @@ private:
 private:
 	WindowContext windowContext_;
 
+	std::chrono::time_point<std::chrono::system_clock> _deltaTimeStart_;
+	///Time in Milliseconds since start
+	long time_;
+	///Time in Milliseconds since last frame
+	long deltaTime_;
+
 private:
 
 	void CreateWindow();
@@ -56,6 +65,9 @@ private:
 
 	static void GLFWWindowSizeCallback(GLFWwindow* window, int width, int height);
 	static void GLFWFramebufferSizeCallback(GLFWwindow* window, int width, int height);
+
+	void TimeStart();
+	void CalculateTime();
 
 };
 

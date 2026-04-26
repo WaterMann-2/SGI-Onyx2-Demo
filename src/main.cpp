@@ -11,7 +11,7 @@ int main(int argc,char* argv[]) {
 	windowContext.name = "Testing";
 
 	windowContext.fullscreen = false;
-	windowContext.clearColor = SpGL::Color(255.0f, 0.0f, 255.0f, 255.0f, false);
+	windowContext.clearColor = SpGL::Color(10.0f, 10.0f, 50.0f, 255.0f, false);
 	
 	graphics.Init(windowContext);
 	graphics.MainLoop();

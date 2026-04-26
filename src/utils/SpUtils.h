@@ -14,6 +14,7 @@
 #include <cstdio>
 #include <stdio.h>
 #include <string>
+#include <chrono>
 
 
 typedef std::int8_t int8;
@@ -28,6 +29,7 @@ typedef std::string String;
 enum SP_GL_RESULT {
 	SP_SUCCESS,
 	SP_FAIL,
+	SP_GL_FAIL,
 	SP_GLFW_FAIL
 };
 

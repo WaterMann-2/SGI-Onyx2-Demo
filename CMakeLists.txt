@@ -14,8 +14,12 @@ add_executable(SiliconGraphics src/main.cpp
         src/glad/khrplatform.h
         src/utils/SpUtils.cpp
         src/utils/SpUtils.h
-        src/utils/Math.cpp
-        src/utils/Math.h
+        src/math/Math.cpp
+        src/math/Math.h
+        src/graphics/Scene.cpp
+        src/graphics/Scene.h
+        src/math/Matrix.cpp
+        src/math/Matrix.h
 )
 
 
