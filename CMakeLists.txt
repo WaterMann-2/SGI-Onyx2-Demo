@@ -20,6 +20,8 @@ add_executable(SiliconGraphics src/main.cpp
         src/graphics/Scene.h
         src/math/Matrix.cpp
         src/math/Matrix.h
+        src/math/Vector.cpp
+        src/math/Vector.h
 )
 
 
