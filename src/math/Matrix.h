@@ -13,7 +13,12 @@ namespace SpGL {
 template<typename T = float>
 class Matrix {
 public:
-	Matrix(uint16 width, uint16 height);
+	Matrix(uint16 width, uint16 height, T start);
+	~Matrix();
+
+	bool IsSquare() const;
+
+	void SetToIdentity();
 
 protected:
 	T** data_ = nullptr;

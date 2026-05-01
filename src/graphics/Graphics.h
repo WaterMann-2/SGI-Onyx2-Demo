@@ -50,9 +50,9 @@ private:
 
 	std::chrono::time_point<std::chrono::system_clock> _deltaTimeStart_;
 	///Time in Milliseconds since start
-	long time_;
+	long time_ = 0;
 	///Time in Milliseconds since last frame
-	long deltaTime_;
+	long deltaTime_ = 0;
 
 private:
 
