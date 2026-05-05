@@ -1,6 +1,5 @@
-#include <iostream>
+#include <graphics/Graphics.h>
 
-#include "./graphics/Graphics.h"
 
 int main(int argc,char* argv[]) {
 	SpGL::Graphics graphics;

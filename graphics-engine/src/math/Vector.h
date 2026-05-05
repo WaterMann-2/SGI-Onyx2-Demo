@@ -7,7 +7,8 @@
 #include "../utils/SpUtils.h"
 
 
-template <typename T = float>
+namespace SpGL {
+template <typename T>
 class Vector {
 public:
 	explicit Vector(uint16 size);
@@ -16,19 +17,45 @@ public:
 
 	void SetToValue(T newValue);
 
+	Vector Normalize();
+
 	Vector Negative();
 	Vector Add(Vector& addFrom);
+	Vector Subtract(Vector& subtractFrom);
 	Vector Scale(T scale);
 
 	T DotProduct(Vector& dotProductFrom);
 
+	T& At(uint16 index);
+	T& Front();
+	T& Back();
+
 	T* GetData();
 
 protected:
-	T* data;
+	T* data = nullptr;
 	uint16 length;
 };
 
+template <typename T>
+class Vector3 : public Vector<T> {
+public:
+	Vector3();
+	Vector3(T x, T y, T z);
+
+protected:
 
 
+};
+
+
+template struct Vector<float>;
+template struct Vector<double>;
+
+template struct Vector3<float>;
+template struct Vector3<double>;
+
+
+} //SpGL
 #endif //SILICONGRAPHICS_VECTORS_H
+

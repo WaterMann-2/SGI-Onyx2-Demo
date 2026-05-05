@@ -5,10 +5,6 @@
 #ifndef SILICONGRAPHICS_GRAPHICS_H
 #define SILICONGRAPHICS_GRAPHICS_H
 
-
-
-#include "../glad/glad.h"
-
 #include "../utils/SpUtils.h"
 #include "../math/Math.h"
 

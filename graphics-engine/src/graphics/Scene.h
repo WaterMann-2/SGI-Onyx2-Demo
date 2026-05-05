@@ -28,7 +28,7 @@ private:
 	spNode* Parent;
 	spNode** children;
 
-	Matrix4f Matrix;
+	Matrix4<float> transformMatrix;
 
 };
 

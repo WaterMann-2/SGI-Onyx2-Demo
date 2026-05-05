@@ -6,18 +6,10 @@
 #define SILICONGRAPHICS_MATH_H
 #include "../utils/SpUtils.h"
 
+#include <math/Vector.h>
+#include <math/Matrix.h>
+
 namespace SpGL {
-
-class Vector2 {
-public:
-	float x, y;
-};
-
-class Vector3 {
-public:
-	float x, y, z;
-};
-
 
 struct Color {
 	Color(float R = 0.0f, float G = 0.0f, float B = 0.0f, float A = 0.0f, bool ZeroToOne = false);
