@@ -5,15 +5,15 @@
 #ifndef SILICONGRAPHICS_GRAPHICS_H
 #define SILICONGRAPHICS_GRAPHICS_H
 
-#include "../utils/SpUtils.h"
-#include "../math/Math.h"
+#include "../src/utils/SpUtils.h"
+#include <glm/vec4.hpp>
 
-namespace SpGL {
+namespace SpEngine {
 
 struct WindowStartContext {
 	int16 width, height;
 	String name;
-	Color clearColor;
+	glm::vec4 clearColor;
 	bool fullscreen;
 
 	String Validate() const;
@@ -27,14 +27,14 @@ private:
 		int16 framebufferWidth, framebufferHeight;
 		String name;
 		float aspectRatio;
-		Color clearColor;
+		glm::vec4 clearColor;
 		bool fullscreen;
 	};
 	public:
 
 	Graphics() = default;
 
-	void Init(WindowStartContext initalContext);
+	void Init(const WindowStartContext& initalContext);
 	void MainLoop();
 	void Update();
 	void Render();

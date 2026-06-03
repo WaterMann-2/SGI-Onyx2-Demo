@@ -6,7 +6,7 @@
 #define SILICONGRAPHICS_UTILS_H
 
 #define GLFW_INCLUDE_NONE
-#include "../../glad/glad.h"
+#include "external/glad/glad.h"
 #include <GLFW/glfw3.h>
 
 #include <cstdint>
@@ -16,6 +16,8 @@
 #include <string>
 #include <chrono>
 #include <cmath>
+
+#include <glm/glm.hpp>
 
 
 typedef std::int8_t int8;

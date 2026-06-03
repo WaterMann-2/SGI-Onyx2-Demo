@@ -2,17 +2,19 @@
 // Created by robsc on 2/4/26.
 //
 
-#include "Graphics.h"
-#include "../utils/SpUtils.h"
+#include "../include/Graphics.h"
 
-namespace SpGL {
+
+#include "utils/SpUtils.h"
+
+namespace SpEngine {
 String WindowStartContext::Validate() const {
 	if (width <= 0 || height <= 0) return "Set Width and Height!";
 	if (name.empty()) return "Set a window name!";
 	return "";
 }
 
-void Graphics::Init(WindowStartContext initalContext) {
+void Graphics::Init(const WindowStartContext& initalContext) {
 	String validationMessage = initalContext.Validate();
 	if (!validationMessage.empty()) SpUtils::Exit(validationMessage, SP_FAIL);
 
@@ -83,7 +85,16 @@ void Graphics::CreateWindow() {
 	glfwMakeContextCurrent(windowContext_.window);
 	gladLoadGL();
 
-	windowContext_.clearColor.NormalizeColorsToOne();
+	for (int i = 0; i < windowContext_.clearColor.length(); i++) {
+		if (windowContext_.clearColor[i] < 0) windowContext_.clearColor[i] = 0;
+		if (windowContext_.clearColor[i] >= 1) {
+			//If range is from 0 - 255 normalize to 0-1
+			windowContext_.clearColor = windowContext_.clearColor / 255.0f;
+			break;
+		}
+	}
+
+
 	glClearColor(windowContext_.clearColor.r, windowContext_.clearColor.g, windowContext_.clearColor.b, windowContext_.clearColor.a);
 
 	glfwSetWindowUserPointer(windowContext_.window, this);

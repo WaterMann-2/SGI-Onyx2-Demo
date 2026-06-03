@@ -5,10 +5,9 @@
 #ifndef SILICONGRAPHICS_SCENE_H
 #define SILICONGRAPHICS_SCENE_H
 
-#include "../utils/SpUtils.h"
-#include "../math/Matrix.h"
+#include "properties/Properties.h"
 
-namespace SpGL {
+namespace SpEngine {
 
 class spNode {
 public:
@@ -18,18 +17,19 @@ public:
 	//TODO Do I keep global transform or add an option to move to local transform
 	void SetParent(spNode parent);
 	spNode* GetParent();
-
-	//TODO Should I set a node or a pointer to a node
+	
 	spNode* GetChild();
 	void AddChild();
-	void RemoveChild();
+
+	void DeleteChild();
+	void DeleteAllChildren();
 
 private:
 	spNode* Parent;
 	spNode** children;
 
-	Matrix4<float> transformMatrix;
-
+	//TODO Assign transform parent to parent!
+	Transform transform;
 };
 
 } // SpGL
