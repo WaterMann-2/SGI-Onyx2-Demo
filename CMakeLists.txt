@@ -9,6 +9,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIGURATION>")
 add_subdirectory(external/glm)
 
 add_subdirectory(modules/graphics-engine)
+add_subdirectory(modules/component-system)
 
 add_executable(SiliconGraphics tests/main.cpp)
 
