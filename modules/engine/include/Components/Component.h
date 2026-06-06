@@ -4,14 +4,19 @@
 
 #ifndef SILICONGRAPHICS_COMPONENT_H
 #define SILICONGRAPHICS_COMPONENT_H
+#include <memory>
 
+namespace SpEngine {
+class Scene;
+}
 
-namespace SpComponent {
+namespace SpEngine {
 
 class Component {
 public:
 	Component() = default;
 	virtual ~Component() = default;
+	Component(SpEngine::Scene& scene);
 
 	virtual void Start();
 
@@ -22,7 +27,7 @@ protected:
 
 
 private:
-
+	std::shared_ptr<SpEngine::Scene> scene;
 
 };
 
