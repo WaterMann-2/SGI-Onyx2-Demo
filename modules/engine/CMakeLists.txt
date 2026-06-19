@@ -17,6 +17,7 @@ target_sources(SpEngine
         include/Scene/Node.h
 )
 
+target_link_libraries(SpEngine PRIVATE glfw)
 target_link_libraries(SpEngine PRIVATE glm)
 target_link_libraries(SpEngine PRIVATE GraphicsEngine)
 

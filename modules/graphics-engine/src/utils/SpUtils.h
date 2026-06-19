@@ -6,7 +6,7 @@
 #define SILICONGRAPHICS_UTILS_H
 
 #define GLFW_INCLUDE_NONE
-#include "external/glad/glad.h"
+#include "../external/glad/glad.h"
 #include <GLFW/glfw3.h>
 
 #include <cstdint>

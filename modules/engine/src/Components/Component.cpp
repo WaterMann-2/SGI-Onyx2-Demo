@@ -2,7 +2,8 @@
 // Created by robsc on 6/3/26.
 //
 
-#include "include/Component.h"
+#include "include/Components/Component.h"
+#include <GLFW/glfw3.h>
 
 SpEngine::Component::Component(SpEngine::Scene& scene) {
 	

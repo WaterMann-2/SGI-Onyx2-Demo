@@ -22,10 +22,8 @@ target_sources(GraphicsEngine
         include/properties/Properties.h
 )
 
-find_package(glfw3 CONFIG REQUIRED)
-
-target_link_libraries(GraphicsEngine PUBLIC glm)
 target_link_libraries(GraphicsEngine PRIVATE glfw)
+target_link_libraries(GraphicsEngine PRIVATE glm)
 
 target_include_directories(GraphicsEngine
         PRIVATE "src"
